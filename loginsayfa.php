@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Çorum Saat Kulesi</title>
+    <title>Giriş Yap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
-    <!--Navbar Kodları-->
-    <div>
+
+<!--Navbar Kodları-->
+<div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="anasayfa.html" style="padding-left: 15px;">Ana Sayfa</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,44 +59,32 @@
       
 
   </div>
-    <!--Fotoğraf ve Başlık-->
-    <div style="text-align: center; margin-top: 50px;">
-        <h1 style="margin-bottom: 30px;">Çorum Saat Kulesi</h1>
-        <img width=60% src="görseller/corumsaatkulesi2.jpg" alt="">
-        
-    </div>
-    
-    <!-- Genel Bilgi -->
-    <div style="margin-left: 9%; margin-right: 9%; margin-top: 40px; font-size:140% ;">
-        <p1>Çorum Saat Kulesi, Çorum'un simgesi haline gelmiş tarihi bir yapıdır. İl merkezinde yükselen bu kule, Sultan II. Abdülhamit'in Muhafız birliği komutanlarından olan 7-8 Hasan Paşa'nın doğduğu Çorum'a hediyesidir. 1831 yılında doğan ve erlikten mareşalliğe kadar yükselen ender isimlerden biri olan 7-8 Hasan Paşa, okuma ve yazması iyi olmadığı için lakabını 7-8 olarak almıştır. Çorum halkına olan bağlılığıyla bilinen Paşa, Çırağan baskını lideri Ali Suavi'yi sopa darbesiyle sonlandırmasıyla da ün kazanmıştır.
+</div>
 
-            Çorum Saat Kulesi, Paşa tarafından Çorum halkına hediye olarak yapılmıştır. Sarı kumtaşından sekiz köşeli ve 5,3 metre çapında bir taban üzerine inşa edilen kule, 27,5 metre yüksekliğindedir. 1894 yılında tamamlanan kule, her köşesi 2,1 metre uzunluğunda olup, asıl gövdesi 24 köşelidir. Kulenin gövde çapı ise 3,9 metredir. Saat kulesinin sembolik önemi büyüktür ve Çorum'un sembolü haline gelmiştir.
-            
-            Kulenin üzerinde dört yöne bakan saat kadranının çapı 1,5 metredir. Akrep uzunluğu 70 cm, yelkovan uzunluğu ise 85 cm'dir. Saatin çanı özel olarak İstanbul'dan getirtilmiştir. Kulenin kapısının üzerinde Muhammet Nuri Bektaşi tarafından yazılmış bir kitabe bulunur. Günümüz Türkçesi ile kitabede şu ifadeler yer alır: "Zamanın ulu hakanı cömert Abdülhamit Han’ın Yüce fermanıyla şanlı Hasan Paşa Adadı bütün vaktini hayır işleri yapmaya Başarılı kılsın her dileğini Mevla Saat Kulesi kısaca seçkin hayratıdır. Onun Bol bereketle yapıldı bu şehri etti ihya Çıkıp kutlu bir zamanda yazıldı kapısına tarih. Bu büyük saati yaptı bak Hasan Paşa’nın lütfü."
-            
-            Çorum Saat Kulesi, tarihi ve kültürel önemiyle sadece zamanı gösteren bir yapı değil, aynı zamanda Çorum'un geçmişine ve mirasına bir saygı duruşudur. Her geçen gün şehrin simgesi haline gelen bu kule, ziyaretçilerin ve yerlilerin gurur duyduğu bir anıt olarak varlığını sürdürmektedir.</p1>
-    </div>
 
-    <!-- Lokasyon Bilgisi -->
-    <div>
-        <div style="margin-top: 40px; margin-bottom: 30px; text-align: center; margin-left: 9%; margin-right: 9%;">
-            <h1>Çorum Saat Kulesi Lokasyonu</h1>
-        </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <iframe class="responsive-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3031.624606440391!2d34.9511381120886!3d40.54988204740462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40872a98305c35e1%3A0xfc3823498e8ac7a6!2s%C3%87orum%20Saat%20Kulesi!5e0!3m2!1str!2str!4v1715538979427!5m2!1str!2str" width=60% height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
-    
+<!--Form-->
+<form action="hosgeldiniz.php" method="post" style="width: 50%; margin:auto; margin-top:10%;">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email adresi</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Emailinizi Giriniz">
+    <small id="emailHelp" class="form-text text-muted">Emailiniz güvendedir.</small>
+  </div>
+  <div style="margin-top: 20px;" class="form-group">
+    <label for="exampleInputPassword1">Şifre</label>
+    <input type="password" name="sifre" class="form-control" id="exampleInputPassword1" placeholder="Şifrenizi giriniz">
+  </div>
+  
+  <button style="margin-top: 20px;" type="submit" class="btn btn-primary">Gönder</button>
+</form>
 
-    
-    <!-- Footer-->
 
-    <div style="margin-bottom: 0px; margin-top: 50px;">
+<!-- Footer -->
+<div style=" margin-top:342px;">
         <footer style="width: 100%;" id="sticky-footer" class=" py-4 bg-dark text-white-50" >
           <div class="container text-center">
             <h4 style="color: rgb(255, 255, 255);">Berat Bahadur</h4><br>
             <a href="https://github.com/MeShowy">
-              <img src="görseller/githubicon.jpg" alt="githubicon" width="40" height="40" >
+              <img src="görseller\githubicon.jpg" alt="githubicon" width="40" height="40" >
             </a>
             
           </div>
@@ -109,3 +99,4 @@
     
 </body>
 </html>
+
