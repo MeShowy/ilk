@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+ 
+</head>
+<body ng-app="myApp" ng-controller="myContrl">
+  <form name="sayfaForm" action="iletisimbilgi.php"  method="post" ng-submit="submitForm()" onsubmit="return formGonder(event)">
+    İsim:
+    <input type="text" id="isim" name="isim" ng-model="formbilgi.isim">
+    
+    <br><br>
+
+    Soyisim:
+    <input type="text" id="soyisim" name="soyisim" ng-model="formbilgi.soyisim">
+    
+    <br><br>
+
+    Email: 
+    <input type="text" name="email" id="email" ng-model="form.email">
+    <br><br>
+    Telefon Numarası: 
+    <input type="text" name="telno" id="telno" ng-model="form.telno">
+    <br><br>
+    Konu:
+    <input type="" id="konu" name="konu" ng-model="formbilgi.konu">
+    
+    <br><br>
+
+    İçerik:
+    <textarea id="icerik" name="icerik" ng-model="formbilgi.icerik"></textarea>
+    
+    <br><br>
+
+    <input type="checkbox" name="mesajtip" id="mesajtipsoru" value="soru">Sorum var.
+    <input type="checkbox" name="mesajtip" id="mesajtiponeri" value="oneri">Önerim var.
+    <input type="checkbox" name="mesajtip" id="mesajtipiletisim" value="iletisim">Size ulaşmak istiyorum.
+
+            
+            <br><br>
+            <input type="radio" name="sitebakis" id="sitebakisolumlu" value="olumlu" ng-model="form.sitebakis">Sitenizi beğendim.
+            <input type="radio" name="sitebakis" id="sitebakiscekimser" value="cekimser" ng-model="form.sitebakis">Kararsızım.
+            <input type="radio" name="sitebakis" id="sitebakisolumsuz" value="olumsuz" ng-model="form.sitebakis">Sitenizi beğenmedim.
+            <br><br>
+            Doğum tarihiniz: <input type="date" id="dogumtarihi" name="dogumtarihi" max="2014-01-01" ng-model="form.dogumtarihi">
+    <br><br>
+    <button type="submit">Gönder</button>
+  </form>
+
+  <div style="display: none;">
+    <h2>Form Durumu</h2>
+    <p id="onizleisim">İsim: </p>
+    <p id="onizlesoyisim">Soyisim: </p>
+    <p id="onizlekonu">Konu: </p>
+    <p id="onizleicerik">İçerik: </p>
+  </div>
+<script>
+
+var app = angular.module('myApp', []);
+
+app.controller('myContrl', ['$scope', function($scope) {
+  $scope.formbilgi = {};
+
+  $scope.submitForm = function() {
+    if ($scope.sayfaForm.$valid) {
+      $scope.formSubmitted = true;
+    } else {
+      $scope.formSubmitted = false;
+      alert("Lütfen tüm alanları doldurun.");
+    }
+  };
+}]);
+
+</script>
+
+<script>
+    function formGonder(event){
+        
+        if( ((document.getElementById("isim").value.trim()=== "" || document.getElementById("soyisim").value.trim()=== "" ||document.getElementById("email").value.trim()=== "" ||
+        document.getElementById("telno").value.trim()=== ""||document.getElementById("konu").value.trim()=== ""||document.getElementById("icerik").value.trim()=== "") || (document.getElementById("mesajtipsoru").checked ==false&&document.getElementById("mesajtiponeri").checked ==false &&document.getElementById("mesajtipiletisim").checked ==false) ||(document.getElementById("sitebakisolumlu").checked==false && document.getElementById("sitebakisolumsuz").checked==false) &&document.getElementById("sitebakiscekimser").checked==false) || document.getElementById("dogumtarihi").value === "")
+        {
+            alert("Girdileri Kontrol Edin. Girdiler Boş Olamaz.");
+            event.preventDefault();
+        }
+
+    }
+    
+</script>
+</body>
+
+
+</html>

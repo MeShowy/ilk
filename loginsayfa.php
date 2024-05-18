@@ -81,12 +81,12 @@
 <form action="loginyonlendirme.php" method="post" style="width: 50%; margin:auto; margin-top:15%;">
   <div class="form-group">
     <label for="exampleInputEmail1">Email adresi</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Emailinizi Giriniz">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Emailinizi Giriniz" required>
     <small id="emailHelp" class="form-text text-muted">Emailiniz güvendedir.</small>
   </div>
   <div style="margin-top: 20px;" class="form-group">
     <label for="exampleInputPassword1">Şifre</label>
-    <input type="password" name="sifre" class="form-control" id="exampleInputPassword1" placeholder="Şifrenizi giriniz">
+    <input type="password" name="sifre" class="form-control" id="exampleInputPassword1" placeholder="Şifrenizi giriniz" required>
   </div>
   
   <button style="margin-top: 20px;" type="submit" class="btn btn-primary">Gönder</button>

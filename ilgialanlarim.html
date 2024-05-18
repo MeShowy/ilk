@@ -65,8 +65,39 @@
 
 
 
+    <div style="margin-left: 9%; margin-right: 9%; margin-top: 20px;">
+      <h1>Burada bazı hobilerimden detaylıca bahsedeceğim.</h1>
+      
 
+    </div>
 
+    <div style="margin-left: 9%; margin-right: 9%; margin-top: 50px;">
+      <h3>Eskrim</h3>
+      <p1>Hala yapmak istesem de uygun bir salon bulamadığım için yapamıyorum</p1>
+      <br>
+      <p2>Eskrim, kökeni antik çağlara dayanan bir dövüş sanatıdır ve günümüzde modern bir spor olarak yapılmaktadır. İlk modern Olimpiyat Oyunları'nda 1896'da yer almıştır. Eskrim üç ana türde yapılır: Flöre (Foil), Epe (Épée) ve Kılıç (Sabre). Flörede hafif ve esnek bir silah kullanılır, hedef alan sadece gövde (omuzlar, sırt, göğüs ve kasık) olup, sadece silahın ucuyla yapılan dürtmeler geçerlidir ve atak hakkı önceliği kuralı vardır. Epede daha ağır bir silah kullanılır, vücudun tamamı hedef alınabilir, sadece silahın ucuyla yapılan dürtmeler geçerlidir ve atak hakkı önceliği yoktur; ilk vuran puan alır. Kılıçta ise hem kesme hem de dürtme hareketleri yapılabilir, hedef alan belden yukarısı (baş, gövde ve kollar) olup, atak hakkı önceliği vardır. Eskrim, strateji, hız ve hassasiyet gerektiren bir spor dalıdır.</p2>
+    </div>
+
+    <div style="margin-left: 9%; margin-right: 9%; margin-top: 50px;">
+      <h3>Okçuluk</h3>
+      <p1>Okçuluk, kökeni antik çağlara dayanan bir spor ve avcılık etkinliğidir. Modern okçuluk, 1900 yılında Olimpiyat Oyunları'na dahil edilmiştir. Okçulukta temel amaç, ok ve yay kullanarak hedefi vurmaktır. Yay çeşitleri arasında olimpik yay, makaralı yay ve geleneksel yay bulunur. Olimpik yay, en yaygın kullanılan yay türüdür ve sabit hedef atışları için uygundur. Makaralı yay, daha karmaşık bir yapıya sahiptir ve genellikle avcılık için kullanılır. Geleneksel yay ise tarihi okçuluk tekniklerine dayanmaktadır. Okçuluk, sporcuya üst düzeyde konsantrasyon, el-göz koordinasyonu ve denge gerektirir. Yarışmalarda sporcular, belirli mesafelerden hedeflere atış yaparak puan toplarlar. Hedefin merkezine yapılan isabetler daha yüksek puan getirir. Okçuluk, bireysel olarak yapılabildiği gibi takım halinde de icra edilebilir. Ayrıca, okçuluk sporu farklı yaş gruplarından insanlara hitap eder ve dünya çapında birçok kulüp ve federasyon tarafından desteklenmektedir.</p1>
+      </div>
+
+      <div style="margin-left: 9%; margin-right: 9%; margin-top: 50px;">
+        <h3>Satranç</h3>
+        <p1>Satranç, strateji ve zeka gerektiren bir masa oyunudur ve dünya çapında büyük bir popülariteye sahiptir. Orta Çağ’da Hindistan’da “chaturanga” adı verilen bir oyun olarak ortaya çıkmış ve zamanla tüm dünyaya yayılmıştır. Satranç, iki oyuncu tarafından, 8x8'lik kare bir tahtada oynanır ve her oyuncunun başlangıçta 16 taşı bulunur. Oyunun amacı, rakibin şahını mat etmektir. Satranç taşlarının her birinin kendine özgü hareket kuralları vardır. 19. yüzyılda satranç turnuvaları düzenlenmeye başlanmış ve 1924’te Dünya Satranç Federasyonu (FIDE) kurulmuştur. FIDE, uluslararası satranç turnuvalarını düzenleyen ve satranç kurallarını belirleyen en üst düzey kuruluştur. Dünya Satranç Şampiyonası, Kadınlar Dünya Şampiyonası, Gençler Dünya Şampiyonası gibi önemli turnuvalar FIDE tarafından organize edilir. Ayrıca FIDE, oyuncuların yetenek seviyesini belirleyen reyting sistemini de yönetir. Satranç, zihinsel yetenekleri geliştiren, problem çözme ve eleştirel düşünme becerilerini artıran bir oyun olarak bilinir.
+        </p1>  
+      </div>
+      
+
+      <div style="margin-left: 9%; margin-right: 9%; margin-top: 50px;">
+        <h3>Müzik Dinlemek</h3>
+        <p1>Herkes gibi ben de müzik dinlemeyi severim. Düşünürken, eğlenirken, bir şey yaparken en azından arkada bir ses olarak açarım. Sevdiğim türler ise ağır metal türü hariç çoğu türü dinler ve severim. 
+          Daha önce pek bir müzik aleti ile uğraşmamış olsam da yakında bir gitar almayı düşünüyorum.Buraya en sevdiğim Türkçe Pop şarkılarından olan "Uzun Lafın Kısası" şarkısının sözlerini bırakıyorum.
+        </p1>
+      </div>
+    <div id="sarkisoz" style="margin: auto; text-align: center; margin-top: 20px;">
+    </div>
 
 
 
@@ -94,11 +125,25 @@
   </div>
 
 <script>
-    fetch('https://my-json-server.typicode.com/meshowy/myrepo').then(res =>{
-        return db.json()
-    }).then(filmler =>{console.log(filmler);
+    const url = 'https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=2438971';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'd289d55092msh7a70acaebc4bae7p188240jsn30d6268b5610',
+		'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+	}
+};
 
-    });
+
+
+fetch(url, options)
+		.then(response => response.json())
+		.then(data => {
+
+      document.getElementById("sarkisoz").innerHTML=data.lyrics.lyrics.body.html
+    })
+		.catch(err => console.error(err));
+    
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -106,6 +151,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>
