@@ -1,94 +1,262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
- 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+<style>
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+  
+  
+   text-align: center;
+}
+</style>
+
 </head>
-<body ng-app="myApp" ng-controller="myContrl">
-  <form name="sayfaForm" action="iletisimbilgi.php"  method="post" ng-submit="submitForm()" onsubmit="return formGonder(event)">
-    İsim:
-    <input type="text" id="isim" name="isim" ng-model="formbilgi.isim">
-    
-    <br><br>
-
-    Soyisim:
-    <input type="text" id="soyisim" name="soyisim" ng-model="formbilgi.soyisim">
-    
-    <br><br>
-
-    Email: 
-    <input type="text" name="email" id="email" ng-model="form.email">
-    <br><br>
-    Telefon Numarası: 
-    <input type="text" name="telno" id="telno" ng-model="form.telno">
-    <br><br>
-    Konu:
-    <input type="" id="konu" name="konu" ng-model="formbilgi.konu">
-    
-    <br><br>
-
-    İçerik:
-    <textarea id="icerik" name="icerik" ng-model="formbilgi.icerik"></textarea>
-    
-    <br><br>
-
-    <input type="checkbox" name="mesajtip" id="mesajtipsoru" value="soru">Sorum var.
-    <input type="checkbox" name="mesajtip" id="mesajtiponeri" value="oneri">Önerim var.
-    <input type="checkbox" name="mesajtip" id="mesajtipiletisim" value="iletisim">Size ulaşmak istiyorum.
-
+<body ng-controller="myCtrl">
+    <!-- Navbar Kodları-->
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html" style="padding-left: 15px;">Ana Sayfa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       
+        <div style="width: 100%;" class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" style="padding-left: 15px;" href="ilgialanlarim.html">İlgi Alanlarım</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" style="padding-left: 15px;" href="ozgecmis.html">Özgeçmiş</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="padding-left: 15px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Memleketim
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  <a class="dropdown-item" href="memleketim.html">Genel Bakış</a>
+                  
+                  <a class="dropdown-item dropdown-toggle" href="#" id="miraslardropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Miraslar
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="miraslardropdown">
+                    <a class="dropdown-item" href="corumsaatkulesi.html">Çorum Kulesi</a>
+                    <a class="dropdown-item" href="hattusakenti.html">Hattuşa Antik Kenti</a>
+                    <a class="dropdown-item" href="koyunbabakoprusu.html">Koyun Baba Köprüsü</a>
+                    <a class="dropdown-item" href="corummuzesi.html">Çorum Müzesi</a>
+                  </div>  
+                  
+                  <a class="dropdown-item" href="corumfk.html">Çorum Futbol Klubü</a>
+                  
+              </div>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" style="padding-left: 15px;" href="iletisim.html">İletişim</a>
+               </li>
+              <div style="padding-left: 15px;">
+              <li class="nav-item">
+                <a style=" background-color:rgb(78, 76, 76); border-radius: 10px;" class="nav-link"  href="loginsayfa.php">Giriş Yap</a>
+              </li>
+              </div>
             
-            <br><br>
-            <input type="radio" name="sitebakis" id="sitebakisolumlu" value="olumlu" ng-model="form.sitebakis">Sitenizi beğendim.
-            <input type="radio" name="sitebakis" id="sitebakiscekimser" value="cekimser" ng-model="form.sitebakis">Kararsızım.
-            <input type="radio" name="sitebakis" id="sitebakisolumsuz" value="olumsuz" ng-model="form.sitebakis">Sitenizi beğenmedim.
-            <br><br>
-            Doğum tarihiniz: <input type="date" id="dogumtarihi" name="dogumtarihi" max="2014-01-01" ng-model="form.dogumtarihi">
-    <br><br>
-    <button type="submit">Gönder</button>
-  </form>
-
-  <div style="display: none;">
-    <h2>Form Durumu</h2>
-    <p id="onizleisim">İsim: </p>
-    <p id="onizlesoyisim">Soyisim: </p>
-    <p id="onizlekonu">Konu: </p>
-    <p id="onizleicerik">İçerik: </p>
+            
+          
+          </div>
+      
+  
   </div>
-<script>
 
-var app = angular.module('myApp', []);
+<div style="margin-left: 3%; margin-right: 9%; margin-top: 20px;">
+ <!--Form Elemanları-->
+ <form name="myForm" id="myForm" action="iletisimbilgi.php" method="POST" ng-submit="checkForm($event)">
+    <label for="isim">İsim:</label>
+    <input type="text" id="isim" name="isim" ng-model="formbilgi.isim">
+    <br><br>
 
-app.controller('myContrl', ['$scope', function($scope) {
+    <label for="soyisim">Soyisim:</label>
+    <input type="text" id="soyisim" name="soyisim" ng-model="formbilgi.soyisim">
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" ng-model="formbilgi.email">
+    <br><br>
+
+
+    <label for="konu">Konu:</label>
+    <input type="text" id="konu" name="konu" ng-model="formbilgi.konu">
+    <br><br>
+
+    <label for="icerik">İçerik:</label>
+    <textarea id="icerik" name="icerik" ng-model="formbilgi.icerik"></textarea>
+    <br><br>
+
+    <input type="checkbox" id="mesajtipsoru" name="mesajtip[]" value="soru" ng-model="formbilgi.soru"> Sorum var.
+    <input type="checkbox" id="mesajtiponeri" name="mesajtip[]" value="oneri" ng-model="formbilgi.oneri"> Önerim var.
+    <input type="checkbox" id="mesajtipiletisim" name="mesajtip[]" value="iletisim" ng-model="formbilgi.iletisim"> Size ulaşmak istiyorum.
+    <br><br>
+
+    <input type="radio" id="sitebakisolumlu" name="sitebakis" value="olumlu" ng-model="formbilgi.sitebakis"> Sitenizi beğendim.
+    <input type="radio" id="sitebakiscekimser" name="sitebakis" value="cekimser" ng-model="formbilgi.sitebakis"> Kararsızım.
+    <input type="radio" id="sitebakisolumsuz" name="sitebakis" value="olumsuz" ng-model="formbilgi.sitebakis"> Sitenizi beğenmedim.
+    <br><br>
+
+    <label for="dogumtarihi">Doğum tarihiniz:</label>
+    <input type="date" id="dogumtarihi" name="dogumtarihi" max="2014-01-01" ng-model="formbilgi.dogumtarihi">
+    <br><br>
+
+    <button type="submit">Gönder</button>
+    <button type="button" id="otherButton">Önzile</button>
+    
+  </form>
+  <button type="button" onclick="temizle()" id="temizlebutton">Temizle</button>
+   <!--Önizleme-->
+    <div id="formonizle" style="display: none;">
+    <h2>Form Durumu</h2>
+    <p id="formonizleisim">İsim: </p>
+    <p id="formonizlesoyisim">Soyisim: </p>
+    <p id="formonizleemail">Email: </p>
+    <p id="formonizlekonu">Konu: </p>
+    <p id="formonizleicerik">İçerik: </p>
+    <p id="formonizlemesajtip">Mesaj Tipi: <label id="formonizlemesajtipyazi"></label> </p>
+    <p id="formonizlesitebakis">Site Hakkında: </p>
+    <p id="formonizledogumtarihi">Doğum Tarihi: </p>
+      </div>
+
+</div>
+
+
+<!-- Footer-->
+
+<div style="margin-bottom: 0px; margin-top: 13%;">
+    <footer style="width: 100%;" id="sticky-footer" class=" py-4 bg-dark text-white-50" >
+      <div class="container text-center">
+        <h4 style="color: rgb(255, 255, 255);">Berat Bahadur</h4><br>
+        <a href="https://github.com/MeShowy">
+          <img src="görseller/githubicon.jpg" alt="githubicon" width="40" height="40" >
+        </a>
+        
+      </div>
+    </footer>
+  </div>
+
+
+
+
+    <!--script kodları-->
+  <script>
+     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     var app = angular.module('myApp', []);
+
+app.controller('myCtrl', ['$scope', function($scope) {
   $scope.formbilgi = {};
 
-  $scope.submitForm = function() {
-    if ($scope.sayfaForm.$valid) {
-      $scope.formSubmitted = true;
-    } else {
-      $scope.formSubmitted = false;
-      alert("Lütfen tüm alanları doldurun.");
+  $scope.checkForm = function(event) {
+    var fields = ['isim', 'soyisim', 'email', 'konu', 'icerik', 'dogumtarihi'];
+    var emptyField = false;
+    var mesajTipChecked = $scope.formbilgi.soru || $scope.formbilgi.oneri || $scope.formbilgi.iletisim;
+    var siteBakisChecked = $scope.formbilgi.sitebakis;
+
+    fields.forEach(function(field) {
+      if (!$scope.formbilgi[field]) {
+        emptyField = true;
+      }
+    });
+
+    if (emptyField || !mesajTipChecked || !siteBakisChecked|| !emailPattern.test($scope.formbilgi.email)) {
+      event.preventDefault();
+      alert("Lütfen tüm alanları doldurun veya Geçerli Bir Email Adresi Girin.");
     }
   };
 }]);
 
-</script>
 
-<script>
-    function formGonder(event){
-        
-        if( ((document.getElementById("isim").value.trim()=== "" || document.getElementById("soyisim").value.trim()=== "" ||document.getElementById("email").value.trim()=== "" ||
-        document.getElementById("telno").value.trim()=== ""||document.getElementById("konu").value.trim()=== ""||document.getElementById("icerik").value.trim()=== "") || (document.getElementById("mesajtipsoru").checked ==false&&document.getElementById("mesajtiponeri").checked ==false &&document.getElementById("mesajtipiletisim").checked ==false) ||(document.getElementById("sitebakisolumlu").checked==false && document.getElementById("sitebakisolumsuz").checked==false) &&document.getElementById("sitebakiscekimser").checked==false) || document.getElementById("dogumtarihi").value === "")
-        {
-            alert("Girdileri Kontrol Edin. Girdiler Boş Olamaz.");
-            event.preventDefault();
-        }
+    document.getElementById('otherButton').addEventListener('click', function() {
 
-    }
+      
+
+      
+     
+
+      if( ((!emailPattern.test(document.getElementById("email").value||document.getElementById("isim").value.trim()=== "" || document.getElementById("soyisim").value.trim()=== "" ||document.getElementById("email").value.trim()=== "" ||document.getElementById("konu").value.trim()=== ""||document.getElementById("icerik").value.trim()=== "") || (document.getElementById("mesajtipsoru").checked ==false&&
+    document.getElementById("mesajtiponeri").checked ==false &&document.getElementById("mesajtipiletisim").checked ==false) ||(document.getElementById("sitebakisolumlu").checked==false && document.getElementById("sitebakisolumsuz").checked==false) &&document.getElementById("sitebakiscekimser").checked==false) || document.getElementById("dogumtarihi").value === ""))
     
-</script>
+     {
+      
+      document.getElementById("formonizle").style="display:none;";
+      alert('Lütfen Boş Girdi Bırakmayınız veya Geçerli Bir Email Adresi Giriniz.');
+     }
+        
+       
+        else{
+          document.getElementById("formonizleisim").innerHTML="İsim: "+document.getElementById("isim").value;
+          document.getElementById("formonizlesoyisim").innerHTML="Soyisim: "+document.getElementById("soyisim").value;
+          document.getElementById("formonizleemail").innerHTML="Email: "+document.getElementById("email").value;
+          
+          document.getElementById("formonizlekonu").innerHTML="Konu: "+document.getElementById("konu").value;
+          document.getElementById("formonizleicerik").innerHTML="İçerik: "+document.getElementById("icerik").value;
+          document.getElementById("formonizlemesajtipyazi").innerHTML = "";
+          if(document.getElementById("mesajtipsoru").checked){
+            document.getElementById("formonizlemesajtipyazi").innerHTML += "Sorum var";
+          }
+          if(document.getElementById("mesajtiponeri").checked){
+            document.getElementById("formonizlemesajtipyazi").innerHTML += "-Önerim var";
+          }
+          if(document.getElementById("mesajtipiletisim").checked){
+            document.getElementById("formonizlemesajtipyazi").innerHTML += "-Size ulaşmak istiyorum";
+          }
+
+          if(document.getElementById("sitebakisolumlu").checked){
+            document.getElementById("formonizlesitebakis").innerHTML="Site Görüşü: Olumlu";
+          }
+          else if(document.getElementById("sitebakiscekimser").checked){
+            document.getElementById("formonizlesitebakis").innerHTML="Site Görüşü: Karasız";
+          }
+          else{
+            document.getElementById("formonizlesitebakis").innerHTML="Site Görüşü: Olumsuz";
+          }
+          
+          
+          document.getElementById("formonizledogumtarihi").innerHTML="Doğum Tarihi: "+document.getElementById("dogumtarihi").value;
+          document.getElementById("formonizle").style="display:block;";
+    }
+    });
+    
+    function temizle(){
+      document.getElementById("isim").value=null;
+      document.getElementById("soyisim").value=null;
+      document.getElementById("email").value=null;
+      document.getElementById("konu").value=null;
+      document.getElementById("icerik").value=null;
+      document.getElementById("mesajtipsoru").checked=false;
+      document.getElementById("mesajtiponeri").checked=false;
+      document.getElementById("mesajtipiletisim").checked=false;
+      document.getElementById("sitebakisolumlu").checked=false;
+      document.getElementById("sitebakisolumsuz").checked=false;
+      document.getElementById("sitebakiscekimser").checked=false;
+      document.getElementById("dogumtarihi").value=null;
+    }
+
+
+   
+  </script>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
 </body>
-
-
 </html>

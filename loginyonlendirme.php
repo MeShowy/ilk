@@ -21,7 +21,7 @@
 <!--Navbar Kodları-->
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="anasayfa.html" style="padding-left: 15px;">Ana Sayfa</a>
+      <a class="navbar-brand" href="index.html" style="padding-left: 15px;">Ana Sayfa</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -79,7 +79,7 @@ if ( $email == "b231210072@sakarya.edu.tr" && $sifre == "b231210072") {
     
     echo  '
     <head>
-        <meta http-equiv="refresh" content="5; URL=anasayfa.html" />
+        <meta http-equiv="refresh" content="5; URL=index.html" />
         <title>Hoşgeldiniz</title>
     </head>
     
